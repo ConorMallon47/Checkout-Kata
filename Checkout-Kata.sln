@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkout-Kata", "Checkout-Kata\Checkout-Kata.csproj", "{95F52DCC-9B27-4E4D-A7DF-C05DD9D23861}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkout-Kata.Tests", "Checkout-Kata.Tests\Checkout-Kata.Tests.csproj", "{57DFC091-D591-4087-B869-1AAB94BAE3DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{95F52DCC-9B27-4E4D-A7DF-C05DD9D23861}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95F52DCC-9B27-4E4D-A7DF-C05DD9D23861}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95F52DCC-9B27-4E4D-A7DF-C05DD9D23861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57DFC091-D591-4087-B869-1AAB94BAE3DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57DFC091-D591-4087-B869-1AAB94BAE3DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57DFC091-D591-4087-B869-1AAB94BAE3DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57DFC091-D591-4087-B869-1AAB94BAE3DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
