@@ -16,14 +16,20 @@ namespace Checkout_Kata
     
         public static void Main(string[] args)
         {
-            Scanning();
+            Inventory inventory = new Inventory();
+            inventory.Add("A", 50);
+            inventory.Add("B", 30);
+            inventory.Add("C", 20);
+            inventory.Add("D", 15);
+            
+            Scanning(inventory);
             
         }
 
-        public static void Scanning()
+        public static void Scanning(Inventory inventory)
         {
             string scanItem = "";
-            Checkout checkout = new Checkout();
+            Checkout checkout = new Checkout(inventory);
             
             while (true)
             {
@@ -32,7 +38,7 @@ namespace Checkout_Kata
                 
                 if (string.IsNullOrWhiteSpace(scanItem))
                     continue;
-
+                
                 if (scanItem == "subtotal")
                 {
                     Console.WriteLine($"The Total is {checkout.GetTotalPrice()}");
@@ -44,7 +50,6 @@ namespace Checkout_Kata
             
             Console.WriteLine("Scanning Ended");
         }
-        
         
     }
 }
