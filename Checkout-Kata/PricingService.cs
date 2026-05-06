@@ -5,7 +5,7 @@ namespace Checkout_Kata;
 
 public class PricingService : IPricingService
 {
-    public int CalculateTotal(Inventory inventory, List<string> currentBasket, List<SpecialOffer> currentSpecialOffers)
+    public int CalculateTotal(Inventory inventory, List<string> currentBasket, IReadOnlyList<SpecialOffer> currentSpecialOffers)
     {
         int total = 0;
 

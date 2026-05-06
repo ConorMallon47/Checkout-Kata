@@ -5,16 +5,7 @@ namespace Checkout_Kata
 {
     class Program
     {
-        
-        //TODO Tests
-        //Empty Basket
-        //A * 3 for discount
-        //B*2 for discount
-        //mixed basket with discount
-        //mixed basket without discount
-        //non discount item
-        
-    
+      
         public static void Main(string[] args)
         {
             Inventory inventory = new Inventory();
@@ -28,14 +19,16 @@ namespace Checkout_Kata
             List<SpecialOffer> currentSpecialOffers = new List<SpecialOffer>();
             currentSpecialOffers.Add(specialOffer3for130);
             currentSpecialOffers.Add(specialOffer2for45);
+
+            IPricingService pricingService = new PricingService();
             
-            Scanning(inventory, currentSpecialOffers);
+            Scanning(inventory, currentSpecialOffers, pricingService);
         }
 
-        public static void Scanning(Inventory inventory, List<SpecialOffer> currentSpecialOffers)
+        public static void Scanning(Inventory inventory, List<SpecialOffer> currentSpecialOffers, IPricingService pricingService)
         {
             string scanItem = "";
-            Checkout checkout = new Checkout(inventory, currentSpecialOffers);
+            Checkout checkout = new Checkout(inventory, currentSpecialOffers, pricingService);
             
             while (true)
             {
