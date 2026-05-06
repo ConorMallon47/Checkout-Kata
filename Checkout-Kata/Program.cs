@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Checkout_Kata
 {
@@ -21,15 +22,20 @@ namespace Checkout_Kata
             inventory.Add("B", 30);
             inventory.Add("C", 20);
             inventory.Add("D", 15);
+
+            SpecialOffer specialOffer3for130 = new SpecialOffer("A", 3, 130);
+            SpecialOffer specialOffer2for45 = new SpecialOffer("B", 2, 45);
+            List<SpecialOffer> currentSpecialOffers = new List<SpecialOffer>();
+            currentSpecialOffers.Add(specialOffer3for130);
+            currentSpecialOffers.Add(specialOffer2for45);
             
-            Scanning(inventory);
-            
+            Scanning(inventory, currentSpecialOffers);
         }
 
-        public static void Scanning(Inventory inventory)
+        public static void Scanning(Inventory inventory, List<SpecialOffer> currentSpecialOffers)
         {
             string scanItem = "";
-            Checkout checkout = new Checkout(inventory);
+            Checkout checkout = new Checkout(inventory, currentSpecialOffers);
             
             while (true)
             {
