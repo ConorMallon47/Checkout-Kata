@@ -4,5 +4,5 @@ namespace Checkout_Kata;
 
 public interface IPricingService
 {
-    int CalculateTotal(IEnumerable<string> items);
+    int CalculateTotal(Inventory inventory, List<string> currentBasket, List<SpecialOffer> currentSpecialOffers);
 }

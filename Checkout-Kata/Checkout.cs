@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Checkout_Kata;
 
 public class Checkout : ICheckout
 {
     private readonly Inventory inventory;
-    private readonly List<string>? CurrentBasket = new();
-    private readonly List<SpecialOffer>? currentSpecialOffers;
+    private readonly List<string> currentBasket = new();
+    private readonly List<SpecialOffer> currentSpecialOffers;
 
     public Checkout(Inventory inventory, List<SpecialOffer> currentSpecialOffers)
     {
@@ -23,7 +22,7 @@ public class Checkout : ICheckout
         
         if (scanSuccess)
         {
-            CurrentBasket.Add(scannedItem);
+            currentBasket.Add(scannedItem);
         }
         else
         {
@@ -33,16 +32,19 @@ public class Checkout : ICheckout
             
     public int GetTotalPrice()
     {
+        IPricingService iPricingService = new PricingService();
+        int grandTotal = iPricingService.CalculateTotal(inventory, currentBasket, currentSpecialOffers);
+        /*
         int totalStandardPricing = 0;
         int totalSpecialOffers = 0;
         
         //discount prices only, then discounted products are removed from basket before standard calculation to avoid duplication
         foreach (var specialOffer in currentSpecialOffers)
         {
-            if (CurrentBasket.Contains(specialOffer.sku))
+            if (currentBasket.Contains(specialOffer.sku))
             {
                 int timesOfferApplied;
-                int specialOfferItemCount = CurrentBasket.Count(item => item == specialOffer.sku);
+                int specialOfferItemCount = currentBasket.Count(item => item == specialOffer.sku);
                 
                 if (specialOfferItemCount >= specialOffer.quantityThreshold)
                 {
@@ -51,19 +53,19 @@ public class Checkout : ICheckout
                     
                     for (int i = 0; i < timesOfferApplied * specialOffer.quantityThreshold; i++)
                     {
-                        CurrentBasket.Remove(specialOffer.sku);
+                        currentBasket.Remove(specialOffer.sku);
                     }
                 }
             }
         }
         //remaining products
-        foreach (var item in CurrentBasket)
+        foreach (var item in currentBasket)
         {
             totalStandardPricing += inventory.GetPrice(item);
         }
 
         int grandTotal = totalStandardPricing + totalSpecialOffers;
-        
+        */
         return grandTotal;
     }
 }
